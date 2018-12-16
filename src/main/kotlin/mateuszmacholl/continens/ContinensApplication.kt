@@ -19,7 +19,7 @@ class ContinensApplication(private val mongoTemplate: MongoTemplate,
         val adminRole = Role("admin")
         mongoOperations.save(adminRole)
         val user = User("root", "root")
-        user.roles = (adminRole)
+        user.roles = listOf(adminRole)
         mongoOperations.save(user)
     }
 

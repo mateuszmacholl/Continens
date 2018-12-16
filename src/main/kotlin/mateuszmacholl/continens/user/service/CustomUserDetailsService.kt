@@ -17,6 +17,6 @@ class CustomUserDetailsService(private val userRepo: UserRepo) : UserDetailsServ
         return org.springframework.security.core.userdetails.User(user.username,
                 user.password, true, true,
                 true, true,
-                listOf(user.roles))
+                user.roles)
     }
 }

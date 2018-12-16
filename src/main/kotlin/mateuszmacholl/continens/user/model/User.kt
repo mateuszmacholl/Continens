@@ -13,5 +13,5 @@ data class User(
     @Id
     var id: ObjectId? = null
     @DBRef
-    var roles: Role? = null
+    var roles: List<Role> = listOf()
 }
