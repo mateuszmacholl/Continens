@@ -5,7 +5,7 @@ import java.util.*
 
 @Service
 abstract class CrudServiceTemplate<Model: Entity, Id> {
-    fun findById(id: Id): Model?{
+    fun findById(id: Id): Model{
         val model = getById(id)
         validatePresence(model)
         return model.get()

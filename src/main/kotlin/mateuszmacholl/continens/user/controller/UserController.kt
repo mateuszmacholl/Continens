@@ -17,7 +17,6 @@ class UserController(private val userService: UserService) {
     @RequestMapping(value = ["/{id}"], method = [RequestMethod.GET])
     fun getById(@PathVariable(value = "id") id: String): ResponseEntity<*>{
         val user = userService.findById(id)
-                ?: return ResponseEntity("Not found user with id: $id", HttpStatus.NOT_FOUND)
         return ResponseEntity(user, HttpStatus.OK)
     }
     @RequestMapping(value = [""], method = [RequestMethod.POST])
