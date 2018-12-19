@@ -7,12 +7,12 @@ import java.util.*
 abstract class CrudServiceTemplate<Model: Entity, Id> {
     fun findById(id: Id): Model?{
         val model = getById(id)
-        validatePresent(model)
+        validatePresence(model)
         return model.get()
     }
 
     protected abstract fun getById(id: Id): Optional<Model>
-    fun validatePresent(model: Optional<Model>){
+    fun validatePresence(model: Optional<Model>){
         if(!model.isPresent){
             throw Exception("Resource not found") // TODO(dedicated exception)
         }
