@@ -5,5 +5,5 @@ import org.springframework.data.annotation.Id
 
 abstract class Entity {
     @Id
-    private var id: ObjectId? = null
+     var id: ObjectId? = null
 }

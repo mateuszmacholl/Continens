@@ -1,6 +1,6 @@
 package mateuszmacholl.continens.util
 
-interface CrudService<Model, Id> {
+interface CrudService<Model: Entity, Id> {
     fun findById(id: Id): Model?
     fun findAll(): List<Model>
     fun save(user: Model): Model
