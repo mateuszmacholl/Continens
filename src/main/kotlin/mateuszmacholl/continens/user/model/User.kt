@@ -1,17 +1,14 @@
 package mateuszmacholl.continens.user.model
 
-import org.bson.types.ObjectId
-import org.springframework.data.annotation.Id
+import mateuszmacholl.continens.util.Entity
 import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 
-@Document(collection="user")
+@Document(collection = "user")
 data class User(
         val username: String,
         val password: String
-) {
-    @Id
-    var id: ObjectId? = null
+) : Entity() {
     @DBRef
     var roles: List<Role> = listOf()
 }

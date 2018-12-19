@@ -1,16 +1,12 @@
 package mateuszmacholl.continens.user.model
 
-import org.bson.types.ObjectId
-import org.springframework.data.annotation.Id
+import mateuszmacholl.continens.util.Entity
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.security.core.GrantedAuthority
 
 @Document(collection="role")
 data class Role(
         val name: String
-): GrantedAuthority {
-    @Id
-    var id: ObjectId? = null
-
+): GrantedAuthority, Entity() {
     override fun getAuthority() = name
 }
