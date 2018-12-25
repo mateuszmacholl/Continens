@@ -1,20 +1,17 @@
 package mateuszmacholl.continens.util
 
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
-abstract class CrudServiceTemplate<Model: Entity, Id> {
-    fun findById(id: Id): Model{
-        val model = getById(id)
-        validatePresence(model)
-        return model.get()
-    }
+abstract class CrudServiceTemplate<Model: Entity, Id>: ICrudService<Model, Id> {
+    final override fun findById(id: Id) = validatePresence(getById(id))
 
-    protected abstract fun getById(id: Id): Optional<Model>
-    fun validatePresence(model: Optional<Model>){
-        if(!model.isPresent){
+    fun validatePresence(model: Model?): Model {
+        if(model == null){
             throw Exception("Resource not found") // TODO(dedicated exception)
+        } else {
+            return model
         }
     }
+    abstract fun getById(id: Id): Model?
 }
