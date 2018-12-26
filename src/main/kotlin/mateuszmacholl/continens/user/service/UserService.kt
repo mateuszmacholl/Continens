@@ -5,7 +5,7 @@ import mateuszmacholl.continens.user.repo.UserRepo
 import org.springframework.stereotype.Service
 
 @Service
-class UserService(private val userRepo: UserRepo): UserServiceTemplate() {
+class UserService(private val userRepo: UserRepo): UserServiceTemplate(), IUserService {
     override fun findAll() = userRepo.findAll().toList()
     override fun save(user: User) = userRepo.save(user)
     override fun delete(id: String) = userRepo.deleteById(id)

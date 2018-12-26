@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service
 
 @Service
 abstract class UserServiceTemplate: CrudServiceTemplate<User, String>() {
-    final fun findByUsername(username: String) = validatePresence(getByUsername(username))
+    final fun findByUsername(username: String) = validate(getByUsername(username))
     abstract fun getByUsername(username: String): User?
 }
