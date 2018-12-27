@@ -7,11 +7,10 @@ abstract class CrudServiceTemplate<Model: Entity, Id> {
     final fun findById(id: Id) = validate(getById(id))
 
     fun validate(model: Model?): Model {
-        val validator = EntityValidator(model)
-        if(validator.isNull()){
+        if(model == null){
             throw Exception("Resource not found") // TODO(dedicated exception)
         } else {
-            return model!!
+            return model
         }
     }
     abstract fun getById(id: Id): Model?
