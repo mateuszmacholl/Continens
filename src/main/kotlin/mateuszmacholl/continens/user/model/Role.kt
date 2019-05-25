@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority
 
 @Document(collection="role")
 data class Role(
-        val name: String
+        val title: String
 ): GrantedAuthority, Entity() {
     override fun getAuthority() = name
 }
